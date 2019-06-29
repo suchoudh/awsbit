@@ -132,4 +132,13 @@ kubectl delete -f app-nginx.yaml
 kubectl get pods -l app=nginx
 
 
+------------------------------------------------
+
+Service discovery
+
+if 2 services are running in same cluster, the service discovery is automatically...
+
+if it running outside, you need to proivde all the details of endpoint...
+
+Ref : https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/
 
