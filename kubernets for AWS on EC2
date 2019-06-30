@@ -141,4 +141,19 @@ if 2 services are running in same cluster, the service discovery is automaticall
 if it running outside, you need to proivde all the details of endpoint...
 
 Ref : https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/
+-------------------------------------------------------------------------
+Namespace:
+
+
+5 teams need to use the same cluster
+
+divide the cluster into multiple logical unit...
+kubectl get namespace
+
+kubectl create namespace sales
+
+kubectl get svc -n <namespace>
+
+
+kubectl apply -f <yaml>
 
