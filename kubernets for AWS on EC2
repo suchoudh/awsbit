@@ -157,3 +157,57 @@ kubectl get svc -n <namespace>
 
 kubectl apply -f <yaml>
 
+--------------------------------------
+
+Namespace
+
+5 teams need to use the same cluster
+
+divide the cluster into multiple logical unit...
+
+
+kubectl get namespace
+
+kubectl create namespace sales
+
+kubectl get svc -n <namespace>
+
+
+kubectl apply -f <yaml>
+
+
+------Storage---------------
+
+persistent volume
+persistent volume claim
+
+
+create a yaml file for creating persistent volume
+
+crete a foler in host path
+
+kubectl get pv --> to get list of Persisted volume
+kubectl get pvc --> persistedvolume claim
+
+kubectl apply -f <yaml>
+
+kubeectl describe pv <name>
+
+Second create the persisted volume claim
+
+create with the help of yaml
+
+read about accessmodes like readwriteonce
+
+then mount the volume to mysql container
+
+
+
+
+
+
+
+
+
+
+
