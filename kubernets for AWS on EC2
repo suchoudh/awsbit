@@ -200,6 +200,52 @@ create with the help of yaml
 read about accessmodes like readwriteonce
 
 then mount the volume to mysql container
+---------------------------------------------------------config map
+
+this is important
+
+Add the config as envrinment and file...for file you need to mont then use configmap..
+
+kind: configmap
+
+diffrences between configmap vs secrets
+
+best practice
+
+create a secret & store the secret in config map & then use it...
+
+----------------------------------------------------------------------
+
+secrets
+
+kind: secret
+
+mount the secret..
+
+
+------------------------------------------------------------------------
+
+enabling dynamic provision persistent volumes which will create volume dynamically(on fly)...
+
+
+for dynamic provision we need to use storageclass
+
+https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/
+
+persistentvolumeclaim
+
+reclaim --> not to delete data..
+
+-----------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
 
 
 
