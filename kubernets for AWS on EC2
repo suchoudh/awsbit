@@ -239,7 +239,29 @@ reclaim --> not to delete data..
 -----------------------------------------------------------------------------------------
 
 
+-----------------------------------------------------------------------------------------
 
+
+Stateful set
+used to deploy your stateful application...
+
+this is important
+
+this will not crete a random id for pods.
+
+the pods will create like web-01, web-02, web-03
+
+for stateless applications, use deployment
+---------------------------------------------------
+daemon set 
+
+run monitoring agent in all the nodes...
+
+this will create a new pod in all nodes & then collects the data. this will not install anything in the existing containers.
+
+
+
+----------------------------------------------------
 
 
 
