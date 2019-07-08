@@ -264,6 +264,41 @@ this will create a new pod in all nodes & then collects the data. this will not 
 ----------------------------------------------------
 
 
+-------------------------------------------------
+to limit the max memory of cpu for a pod...
+
+resources:
+
+ requests:
+
+ memory
+
+ cpu
+-------------------------------------
+
+assigning pods to nodes
+
+i have 10 worker nodes, in it 5 have 32 gb & 5 have 8gb ...
+
+if you need, you have to deploy application to specfic node, then we use this...
+
+node selector
+
+kubectl label --help
+
+
+kubespray --> will help to convert kubernets 1.15 to new version....
+
+
+
+
+---------------------------------------
+rbac
+role based access control...
+
+https://kubernetes.io/docs/reference/access-authn-authz/rbac/
+
+---------------------------------------------
 
 
 
