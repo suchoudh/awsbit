@@ -300,7 +300,23 @@ https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 
 ---------------------------------------------
 
+RBAC
 
+Role
+
+role is providing access to the pods & others on kubernets API calls.
+
+basic Roles has access to limited namespace...
+
+
+cluster role has access to all namespaces
+
+
+rolebinding and cluster binding
+
+the process of binding a user to the role i called rolebinding
+
+the process of binding a user to the role i called cluster binding
 
 
 
