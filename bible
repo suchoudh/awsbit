@@ -7,11 +7,13 @@ Reliablity
 resilient
 business impact
 ttx
-RCA
+
 SSL Certificates.
 Rotation of keys
 
-
+RCA
+RPO
+RTO
 time to mitigate
 time to engage
 time to detect
