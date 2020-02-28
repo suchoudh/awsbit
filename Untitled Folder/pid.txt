@@ -1,0 +1,10 @@
+ps -ef > $1
+echo "`sed -n '1p' $1`"
+for((i=2;i<=`cat $1|wc -l`;i++))
+do
+j=`cat $1|sed -n ''$i'p'|awk '{print$2}'`
+if [ $j -le 100 ]
+then
+echo "`sed -n ''$i'p' $1`"
+fi
+done

@@ -1,0 +1,42 @@
+########WeekNumber is 09#####***SunilNotes.txt ##################################
+##   File                : SunilNotes.txt 
+##   Creation DateTime   :09_20200228-09_56
+##   Last Updated Date   :09_20200228-09_56 
+##   Author              : Sunil Choudhary 
+##   Remarks             :  My understanding levels  
+##                              1) This is first point 
+##########111#############################################################
+
+
+
+Basic Plan
+
+    Included with all accounts
+    24x7 self-service access to AWS resources
+    For account and billing issues only
+    Access to Personal Health Dashboard & Trusted Advisor
+
+Developer Plan
+
+    For early adoption, testing and development
+    Email access to AWS Support during business hours
+    1 primary contact can open an unlimited number of support cases
+    12-hour response time for nonproduction systems
+
+Business Plan
+
+    For production workloads & business-critical dependencies
+    24/7 chat, phone, and email access to AWS Support
+    Unlimited contacts can open an unlimited number of support cases
+    1-hour response time for production systems
+--- 
+have created an accunt with protonmail. connects back to PAN number and credit card. My business address given of Hyd. 
+--- 
+I am an entrepreneus and intrested in Learning adn Certification 
+
+-- 
+
+
+
+
+Ran on 09_20200228-09_56

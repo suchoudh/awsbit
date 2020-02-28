@@ -1,0 +1,28 @@
+clear
+filename=$1
+
+#aws configure
+echo -n "please enter vpc cidr-block : "
+read cidr
+aws ec2 create-vpc --cidr-block $cidr > $filename.log
+vpcid=`cat $filename.log | grep VpcId | awk '{print $4}'`
+echo $vpcid
+aws ec2 create-tags --resources $vpcid  --tags Key=Name,Value=Kelly
+aws ec2 describe-vpcs --vpc-ids $vpcid
+echo -n "please enter subnet cidr-block : "
+read subcidr
+aws ec2 create-subnet --vpc-id $vpcid --cidr-block $subcidr > $filename.log
+subnetid=`cat $filename.log | grep SubnetId | awk '{print $4}'`
+echo $subnetid
+aws ec2 create-tags --resources $subnetid  --tags Key=Name,Value=Mytrivanam
+aws ec2 create-internet-gateway > $filename.log
+internetgatewayid=`cat $filename.log | grep InternetGatewayId | awk '{print $4}'`
+echo $internetgatewayid
+aws ec2 create-tags --resources $internetgatewayid  --tags Key=Name,Value=KellyIGW
+aws ec2 create-route-table --vpc-id $vpcid > $filename.log
+routetableid=`cat $filename.log | grep rtb | awk '{print $2}'`
+echo $routetableid
+aws ec2 attach-internet-gateway --internet-gateway-id $internetgatewayid --vpc-id $vpcid
+aws ec2 create-route --route-table-id $routetableid --destination-cidr-block 0.0.0.0/0 --gateway-id $internetgatewayid
+aws ec2 associate-route-table --route-table-id $routetableid  --subnet-id $subnetid
+

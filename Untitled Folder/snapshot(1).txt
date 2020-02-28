@@ -1,0 +1,25 @@
+#To create snapshots for only running instances
+aws ec2 describe-regions --output text|cut -f3 > $1.txt
+for i in `cat $1.txt`
+do
+aws ec2 describe-instances --region $i --output text|grep -w STATE|cut -f2>$i.txt
+aws ec2 describe-instances --region $i --output table|awk '/InstanceId/{print$4}'>$i1.txt
+paste $i.txt $i1.txt|grep 16|cut -f2 > $2.txt
+if [ `cat $2.txt|wc -l` -ne 0 ]
+then
+for j in `cat $2.txt`
+do
+aws ec2 describe-volumes --region $i --filters Name=attachment.instance-id,Values=$j Name=attachment.delete-on-termination,Values=true --output text|grep VOLUMES|cut -f9 >> $12.txt
+done
+for k in `cat $12.txt`
+do
+aws ec2 create-snapshot --volume-id $k --description "This is my root volume snapshot.$k"|awk '/SnapshotId/{print$4}'>>$13.txt
+done
+for l in `cat $13.txt`
+do
+aws ec2 create-tags --resources $l --tags Key=Name,Value=snapshot$l
+done
+echo "########In $i Region###########"
+echo "No of Snapshots created are:::`cat $13.txt|wc -l` "
+fi
+done

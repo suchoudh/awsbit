@@ -1,0 +1,60 @@
+#to test iam cases
+clear
+while :
+do
+echo "-------------------------------------------------"
+echo "Main menu"
+echo "-------------------------------------------------"
+echo "1.To create IAM user"
+echo "2.To create IAM group"
+echo "3.exit"
+echo -n "please select any one option: "
+read opt
+function1()
+{
+echo -n "please provide user name :"
+read user
+aws iam create-user --user-name $user
+while :
+do
+echo "1.to give programical access"
+echo "2.to give console access"
+echo "3.exit"
+echo -n "please select one option"
+read opt1
+case $opt1 in
+1)aws iam create-access-key --user-name $user;echo "press any key...";read;;
+2)echo -n  "please provide passwd :";read pass;aws iam create-login-profile --user-name $user --password $pass;echo "press any key...";read;;
+3)break;;
+*)echo "oops!! select right option 1,2";echo "press any key..."read;;
+esac
+done
+return
+}
+function2()
+{
+echo -n "please enter group name : "
+read group
+aws iam create-group --group-name $group
+while :
+do
+echo "1.Add user to group"
+echo "2 exit"
+echo -n "please select one option :"
+read opt2
+case $opt2 in
+1)echo -n  "please enter existing user name :";read usr;aws iam add-user-to-group --user-name $usr --group-name $group;echo "press any key....";read;;
+2)break;;
+esac
+done
+return
+}
+
+
+case $opt in
+1)function1;echo "press any key...";read;;
+2)function2;echo "press any key...";read;;
+3)exit 0;;
+*)echo "oops!!! please select any one option 1,2,3";echo "press any key...";read;;
+esac
+done

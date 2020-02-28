@@ -1,0 +1,49 @@
+#To display all instances
+aws ec2 describe-regions --output text|cut -f3 > $1
+for i in `cat $1`
+do
+sum=0
+sum1=0
+sum2=0
+run()
+{
+run=`expr $run + $sum`
+}
+run1()
+{
+run1=`expr $run1 + $sum1`
+}
+run2()
+{
+run2=`expr $run2 + $sum2`
+}
+aws ec2 describe-instances --region $i --output text|grep -w STATE|cut -f2 > $2
+if [ `cat $2|wc -l` -ne 0 ]
+then
+for j in `cat $2`
+do
+if [ $j == 16 ]
+then
+sum=`expr $sum + 1`
+elif [ $j == 48 ]
+then
+sum1=`expr $sum1 + 1`
+elif [ $j == 80 ]
+then
+sum2=`expr $sum2 + 1`
+fi
+done
+run
+run1
+run2
+echo " ########   $i Region Details  #########"
+echo " ========================================"
+echo "No Of Running Instances :: $sum"
+echo "No Of Terminated Instances :: $sum1"
+echo "No Of Stopped Instances :: $sum2"
+echo " ========================================"
+fi
+done
+echo "Total no of Runnig Instances in all regions are::: $run"
+echo "Total no of Terminated Instances in all regions are::: $run1"
+echo "Total no of Stopped Instances in all regions are::: $run2"

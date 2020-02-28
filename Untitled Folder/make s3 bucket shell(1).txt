@@ -1,0 +1,17 @@
+#To create s3 bucket and upload files from local machine
+while :
+do
+aws s3 ls
+echo "please enter your bucket name other then above:::::"
+read bucket_name
+aws s3 mb s3://$bucket_name
+if [ $? -eq  0 ]
+then
+echo " $bucket_name bucket created sucessfully"
+aws s3 sync /root/vinod s3://$bucket_name
+break
+else
+echo "please try to enter another bucket name"
+fi
+done
+

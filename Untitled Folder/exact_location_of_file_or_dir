@@ -1,0 +1,11 @@
+#To check the given file exist or not
+clear
+echo -n  "please enter the file name::"
+read file
+i=`find / -name $file|wc -l`
+if [ $i -ne 0 ]
+then 
+echo "The exact file location is ::::::`find / -name $file`"
+else
+echo "Given file is not present in any location"
+fi
