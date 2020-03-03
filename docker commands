@@ -5,6 +5,12 @@ docker ps --> list running containers
 docker ps -a --> List All containers which are even stopped....
 docker images  --> list of docker images...
 
+Ex :
+For linux : docker run -it busybox /bin/sh
+For windows : docker run -it microsoft/iis powershell
+For windows : Docker pull mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016
+For Windows : docker run -it mcr.microsoft.com/windows:1809 cmd
+
 For more examples to get more sample, type "dockersamples" in dockerhub search area...
 ----------------------------------------------------------
 
